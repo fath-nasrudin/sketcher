@@ -43,3 +43,36 @@ body {
   text-decoration: none;
   color: #FCA311;
 }
+
+.main {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+}
+
+.leftbar,
+.rightbar,
+.mainbar {
+  border: 1px solid white;
+  min-width: 100px;
+}
+
+.board {
+  width: 500px;
+  height: 500px;
+  border: 1px solid white;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  flex: 1 1 0;
+
+  display: flex;
+}
+
+.cell {
+  flex: 1 1 0;
+  border: 0.1px solid rgba(255, 166, 0, 0.2);
+}
