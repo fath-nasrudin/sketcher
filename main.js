@@ -44,6 +44,7 @@ const createRowOfCells = (totalCell) => {
 
 const generateBoard = (totalLength = 64) => {
   const board = document.querySelector('#board');
+  board.replaceChildren(); // reset
   board.addEventListener('mouseover', () => (mouseHoverState = true));
   board.addEventListener('mouseout', () => (mouseHoverState = false));
   for (let i = 0; i < totalLength; i++) {
@@ -53,3 +54,22 @@ const generateBoard = (totalLength = 64) => {
 };
 
 generateBoard(LENGTH);
+
+// controller
+
+// size controller
+const gridSizeSlider = document.querySelector('#sizeSliderInput');
+gridSizeSlider.value = LENGTH;
+gridSizeSlider.addEventListener('input', () => {
+  const sizeSliderValue = document.querySelector('#sizeSliderValue');
+  sizeSliderValue.textContent = gridSizeSlider.value;
+});
+
+const sizeSliderValue = document.querySelector('#sizeSliderValue');
+sizeSliderValue.textContent = LENGTH;
+
+const sizeSliderButton = document.querySelector('#sizeSliderButton');
+sizeSliderButton.addEventListener('click', () => {
+  const size = Number(document.querySelector('#sizeSliderValue').textContent);
+  generateBoard(size);
+});

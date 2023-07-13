@@ -16,7 +16,18 @@
         <div class="logo">Sketcher</div>
       </div>
       <main class="main">
-        <div class="leftbar"></div>
+        <div class="leftbar">
+          <h2>Controller</h2>
+          <div class="controller">
+
+            <div class="grid-size-controller">
+              <input type="range" min="16" max="100" id="sizeSliderInput">
+              <div>Value: <span id="sizeSliderValue"></span></div>
+              <button id="sizeSliderButton">Change Size</button>
+            </div>
+
+          </div>
+        </div>
         <div class="mainbar">
           <div class="board" id="board"></div>
         </div>

@@ -87,3 +87,12 @@ body {
 .filled {
   background-color: black;
 }
+
+/* Controller */
+.grid-size-controller {
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
