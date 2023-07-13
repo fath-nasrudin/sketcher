@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color: white;
+}
+
+body {
+  background-color: #14213d;
+}
+
+.main-container {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.main {
+  flex: 1;
+}
+
+.header,
+.footer {
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 900;
+}
