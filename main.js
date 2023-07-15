@@ -121,6 +121,5 @@ const getPenColor = () => penColor;
 const setPenColor = (value) => (penColor = value);
 const penColorController = document.querySelector('#penColor');
 penColorController.addEventListener('input', (e) => {
-  // console.log(e.target.value);
   setPenColor(e.target.value);
 });
