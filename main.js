@@ -7,6 +7,9 @@ document.addEventListener('dragstart', (e) => {
 });
 
 const LENGTH = 16;
+let activeToolState = 'pen';
+const getActiveToolState = () => activeToolState;
+const setActiveToolState = (value) => (activeToolState = value);
 
 const createCell = () => {
   const cell = document.createElement('div');
@@ -39,12 +42,24 @@ document.addEventListener('mouseup', () => (mouseDownState = false));
 const populateCellsListeners = () => {
   const cells = document.querySelectorAll('.cell');
   Array.from(cells).forEach((cell) => {
-    cell.addEventListener('mousedown', (e) =>
-      e.currentTarget.classList.add('filled')
-    );
+    cell.addEventListener('mousedown', (e) => {
+      const activeTool = getActiveToolState();
+      if (activeTool === 'pen') {
+        e.currentTarget.classList.add('filled');
+      } else if (activeTool === 'eraser') {
+        e.currentTarget.classList.remove('filled');
+      }
+    });
 
-    cell.addEventListener('mouseover', function () {
-      if (getMouseDownState()) this.classList.add('filled');
+    cell.addEventListener('mouseover', function (e) {
+      if (getMouseDownState()) {
+        const activeTool = getActiveToolState();
+        if (activeTool === 'pen') {
+          e.currentTarget.classList.add('filled');
+        } else if (activeTool === 'eraser') {
+          e.currentTarget.classList.remove('filled');
+        }
+      }
     });
   });
 };
@@ -77,8 +92,25 @@ gridSizeSlider.addEventListener('input', () => {
 const sizeSliderValue = document.querySelector('#sizeSliderValue');
 sizeSliderValue.textContent = LENGTH;
 
-const sizeSliderButton = document.querySelector('#sizeSliderButton');
-sizeSliderButton.addEventListener('click', () => {
+const resetBoard = () => {
   const size = Number(document.querySelector('#sizeSliderValue').textContent);
   generateBoard(size);
+};
+const sizeSliderButton = document.querySelector('#sizeSliderButton');
+sizeSliderButton.addEventListener('click', resetBoard);
+
+// tools
+const tools = document.querySelectorAll('#pen, #eraser');
+const resetActiveTool = () => {
+  Array.from(tools).forEach((tool) => tool.classList.remove('active'));
+};
+Array.from(tools).forEach((tool) => {
+  tool.addEventListener('click', (e) => {
+    setActiveToolState(e.currentTarget.value);
+    resetActiveTool();
+    tool.classList.add('active');
+  });
 });
+
+const resetButton = document.querySelector('#clear');
+resetButton.addEventListener('click', resetBoard);
