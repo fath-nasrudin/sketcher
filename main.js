@@ -45,9 +45,9 @@ const populateCellsListeners = () => {
     cell.addEventListener('mousedown', (e) => {
       const activeTool = getActiveToolState();
       if (activeTool === 'pen') {
-        e.currentTarget.classList.add('filled');
+        e.currentTarget.style.backgroundColor = getPenColor();
       } else if (activeTool === 'eraser') {
-        e.currentTarget.classList.remove('filled');
+        e.currentTarget.style.backgroundColor = '';
       }
     });
 
@@ -55,9 +55,9 @@ const populateCellsListeners = () => {
       if (getMouseDownState()) {
         const activeTool = getActiveToolState();
         if (activeTool === 'pen') {
-          e.currentTarget.classList.add('filled');
+          e.currentTarget.style.backgroundColor = getPenColor();
         } else if (activeTool === 'eraser') {
-          e.currentTarget.classList.remove('filled');
+          e.currentTarget.style.backgroundColor = '';
         }
       }
     });
@@ -114,3 +114,13 @@ Array.from(tools).forEach((tool) => {
 
 const resetButton = document.querySelector('#clear');
 resetButton.addEventListener('click', resetBoard);
+
+// pen color controller
+let penColor = document.querySelector('#penColor').value;
+const getPenColor = () => penColor;
+const setPenColor = (value) => (penColor = value);
+const penColorController = document.querySelector('#penColor');
+penColorController.addEventListener('input', (e) => {
+  // console.log(e.target.value);
+  setPenColor(e.target.value);
+});
