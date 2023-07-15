@@ -109,6 +109,24 @@ body {
 }
 
 /* Button style */
+button {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: black;
+  font-weight: 700;
+}
+
+button:hover {
+  background-color: #f4f4f4;
+}
+
+button:active {
+  background-color: #8f8f8f;
+}
+
 button.active {
-  outline: 2px solid orange;
+  background-color: #FCA311;
+  color: black;
 }
