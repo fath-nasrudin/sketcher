@@ -101,6 +101,7 @@ sizeSliderButton.addEventListener('click', resetBoard);
 
 // tools
 const tools = document.querySelectorAll('#pen, #eraser');
+document.querySelector('#pen').classList.add('active'); // init to focus on pen
 const resetActiveTool = () => {
   Array.from(tools).forEach((tool) => tool.classList.remove('active'));
 };
