@@ -89,12 +89,22 @@ body {
 }
 
 /* Controller */
-.grid-size-controller {
+
+.controller {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grid-size-controller,
+.tools-controller {
   border: 1px solid white;
   border-radius: 8px;
   padding: 8px;
+
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
 /* Button style */
