@@ -34,9 +34,20 @@ body {
   align-items: center;
 }
 
+.header>* {
+  flex: 1;
+}
+
+.sc-link a {
+  text-decoration: none;
+  color: #FCA311;
+}
+
 .logo {
   font-size: 32px;
   font-weight: 900;
+  display: flex;
+  justify-content: center;
 }
 
 .footer a {
